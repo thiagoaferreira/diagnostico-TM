@@ -44,6 +44,13 @@
             overflow: hidden;
         }
 
+        @media (max-width: 768px) {
+            .container {
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+        }
+
         /* Header com Logo */
         .header {
             background: linear-gradient(135deg, var(--primary-color) 0%, #1a1a1a 100%);
@@ -255,6 +262,7 @@
             padding: 8px 0;
             padding-left: 25px;
             position: relative;
+            line-height: 1.6;
         }
 
         .highlight li::before {
@@ -287,6 +295,16 @@
             margin: 5px;
             font-weight: 600;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .impact-metric {
+                display: block;
+                margin: 8px 0;
+                padding: 12px 15px;
+                text-align: center;
+            }
         }
 
         /* Solutions */
@@ -367,14 +385,39 @@
         }
 
         /* Tables */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .table-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .table-wrapper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .table-wrapper::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .table-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
             background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            min-width: 600px;
         }
 
         th {
@@ -383,6 +426,7 @@
             padding: 15px;
             text-align: left;
             font-weight: 600;
+            white-space: nowrap;
         }
 
         td {
@@ -484,12 +528,45 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
             .header h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
+            .header .company {
+                font-size: 0.95rem;
+            }
+
+            .logo {
+                max-width: 200px;
             }
 
             .cards-grid {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .card-value {
+                font-size: 2rem;
+            }
+
+            .card-icon {
+                font-size: 2rem;
             }
 
             .timeline::before {
@@ -505,16 +582,154 @@
             }
 
             .content {
-                padding: 20px;
+                padding: 20px 15px;
+            }
+
+            .section-header h2 {
+                font-size: 1.6rem;
             }
 
             .nav {
-                padding: 15px;
+                padding: 15px 10px;
+                gap: 8px;
             }
 
             .nav-item {
                 padding: 10px 15px;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
+            }
+
+            .highlight {
+                padding: 20px 15px;
+            }
+
+            .highlight h3 {
+                font-size: 1.2rem;
+            }
+
+            .problem-card, .solution-card {
+                padding: 20px 15px;
+            }
+
+            .problem-card h3, .solution-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .impact-metric {
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+
+            table {
+                font-size: 0.85rem;
+                min-width: 500px;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+
+            .chart-container {
+                padding: 20px 15px;
+            }
+
+            .chart-title {
+                font-size: 1.2rem;
+            }
+
+            .cta-section {
+                padding: 30px 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-section p {
+                font-size: 1rem !important;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .footer {
+                padding: 25px 15px;
+            }
+
+            /* Scroll hint para tabelas */
+            .table-wrapper::after {
+                content: '← Deslize para ver mais →';
+                display: block;
+                text-align: center;
+                padding: 10px;
+                background: #f8f9fa;
+                color: #666;
+                font-size: 0.8rem;
+                border-top: 1px solid var(--border-color);
+            }
+
+            /* Melhorar espaçamento em listas */
+            .highlight ul, .problem-card ul, .solution-card ul {
+                padding-left: 5px;
+            }
+
+            .highlight li, .problem-card li, .solution-card li {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .header {
+                padding: 25px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo {
+                max-width: 160px;
+            }
+
+            .card-value {
+                font-size: 1.8rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.4rem;
+            }
+
+            .section-header p {
+                font-size: 0.95rem;
+            }
+
+            table {
+                font-size: 0.75rem;
+                min-width: 450px;
+            }
+
+            th, td {
+                padding: 8px 5px;
+            }
+
+            .nav-item {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.95rem;
             }
         }
 
@@ -683,7 +898,7 @@
                 </div>
 
                 <!-- Comparativo Atual vs Potencial -->
-                <table>
+                <div class="table-wrapper"><table>
                     <thead>
                         <tr>
                             <th>Métrica</th>
@@ -718,7 +933,7 @@
                             <td><span class="tag success">+4.115%</span></td>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
             </div>
 
             <!-- SEÇÃO 2: PROBLEMAS CRÍTICOS -->
@@ -752,7 +967,7 @@
                         você gasta R$ 72.000 para gerar apenas R$ 3.959.
                     </p>
 
-                    <table style="margin-top: 20px;">
+                    <div class="table-wrapper"><div class="table-wrapper"><table>
                         <tr>
                             <th>Métrica</th>
                             <th>Paid Social (Pago)</th>
@@ -773,7 +988,7 @@
                             <td>R$ 3.959,56</td>
                             <td style="color: #28a745; font-weight: 600;">R$ 23.597,08</td>
                         </tr>
-                    </table>
+                    </table></div>
                 </div>
 
                 <!-- Problema 2: Google Ads -->
@@ -838,7 +1053,7 @@
                 <!-- Resumo do Impacto -->
                 <div class="highlight" style="margin-top: 30px;">
                     <h3>💰 Custo Total de Não Agir</h3>
-                    <table style="margin-top: 20px; background: rgba(255,255,255,0.1);">
+                    <div class="table-wrapper"><table style="background: rgba(255,255,255,0.1);">
                         <tr>
                             <th style="background: rgba(255,255,255,0.2);">Problema</th>
                             <th style="background: rgba(255,255,255,0.2);">Perda Anual</th>
@@ -859,7 +1074,7 @@
                             <td><strong>TOTAL</strong></td>
                             <td><strong style="font-size: 1.3rem; color: #0066FF;">R$ 658.041/ano</strong></td>
                         </tr>
-                    </table>
+                    </table></div>
                     <p style="margin-top: 20px; font-size: 1.2rem; text-align: center;">
                         = <strong>R$ 54.837/mês</strong> | = <strong>R$ 1.808/dia</strong>
                     </p>
@@ -955,7 +1170,7 @@
                     <p><strong>Por quê?</strong> Dia dos Namorados teve ROAS de 5,1x. Explorar Dia das Mães, 
                     Black Friday, Natal, Dia das Noivas.</p>
 
-                    <table style="margin-top: 20px;">
+                    <div class="table-wrapper"><div class="table-wrapper"><table>
                         <tr>
                             <th>Data Sazonal</th>
                             <th>Potencial</th>
@@ -981,7 +1196,7 @@
                             <td>Pico de vendas</td>
                             <td><span class="tag success">Planejar</span></td>
                         </tr>
-                    </table>
+                    </table></div>
                 </div>
 
                 <!-- Oportunidade 4 -->
@@ -1139,7 +1354,7 @@
                     <canvas id="budgetChart"></canvas>
                 </div>
 
-                <table style="margin-top: 30px;">
+                <div class="table-wrapper"><div class="table-wrapper"><table>
                     <thead>
                         <tr>
                             <th>Canal</th>
@@ -1200,7 +1415,7 @@
                             <td><strong>3,5x média</strong></td>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
 
                 <div class="highlight" style="margin-top: 30px;">
                     <h3>💡 Por que esse investimento?</h3>
@@ -1381,7 +1596,7 @@
                 <!-- Comparativo Cenários -->
                 <div class="highlight">
                     <h3>📊 Comparativo: Atual vs Otimizado</h3>
-                    <table style="margin-top: 20px; background: rgba(255,255,255,0.1);">
+                    <div class="table-wrapper"><table style="background: rgba(255,255,255,0.1);">
                         <thead>
                             <tr>
                                 <th style="background: rgba(255,255,255,0.2);">Métrica</th>
@@ -1442,12 +1657,12 @@
                                 <td style="font-weight: 600;">+4.115%</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
                 </div>
 
                 <!-- Breakdown por Canal -->
                 <h3 style="margin-top: 40px; color: var(--primary-color);">📊 Breakdown de Receita por Canal (Mês 6)</h3>
-                <table style="margin-top: 20px;">
+                <div class="table-wrapper"><div class="table-wrapper"><table>
                     <thead>
                         <tr>
                             <th>Canal</th>
@@ -1501,7 +1716,7 @@
                             <td>100%</td>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
 
                 <!-- ROI Consolidado -->
                 <div class="highlight" style="margin-top: 40px;">
@@ -1843,6 +2058,27 @@
             document.querySelectorAll('.section').forEach(section => {
                 if (!section.classList.contains('active')) {
                     section.style.display = 'none';
+                }
+            });
+        });
+
+        // Mobile: Adicionar indicador visual para tabelas com scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableWrappers = document.querySelectorAll('.table-wrapper');
+            
+            tableWrappers.forEach(wrapper => {
+                const table = wrapper.querySelector('table');
+                if (table && table.scrollWidth > wrapper.clientWidth) {
+                    wrapper.style.position = 'relative';
+                    
+                    // Adicionar sombra para indicar scroll
+                    wrapper.addEventListener('scroll', function() {
+                        if (this.scrollLeft > 0) {
+                            this.style.boxShadow = 'inset 10px 0 10px -10px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.08)';
+                        } else {
+                            this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
+                        }
+                    });
                 }
             });
         });
