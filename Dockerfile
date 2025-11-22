@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Copiar o relatório HTML para o diretório padrão do nginx
-COPY relatorio_tm_joias.html /usr/share/nginx/html/index.html
+COPY index.html /usr/share/nginx/html/index.html
 
 # Expor porta 80
 EXPOSE 80
